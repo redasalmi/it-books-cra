@@ -59,3 +59,12 @@ body {
 .apiLink:hover {
     text-decoration: none;
 }
+
+.amazonLink {
+    color: white;
+}
+
+.amazonLink:hover {
+    color: rgb(230, 143, 44);
+    text-decoration: none;
+}

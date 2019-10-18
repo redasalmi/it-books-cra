@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-    Breadcrumb, BreadcrumbItem, Table
+    Button, Breadcrumb, BreadcrumbItem, Table
 } from 'reactstrap';
 
 
 const BookDetail = ({ bookdetail, setShowBooks, setShowBookDetail }) => {
-
+    const amazonUrl = `https://itbook.store/go/buy/1/${bookdetail.isbn13}`;
     return (
         <div>
             <Breadcrumb className="bookBreadcrump">
@@ -26,6 +26,11 @@ const BookDetail = ({ bookdetail, setShowBooks, setShowBookDetail }) => {
                             className="border bg-light" />
                         <h5 className="m-2 text-primary">{bookdetail.title}</h5>
                         <h5 className="m-2 text-primary">{bookdetail.subtitle}</h5>
+                        
+                        <a href={amazonUrl} className="amazonLink btn bg-dark" 
+                            target="_blank" rel="noopener noreferrer">
+                                Buy on Amazon
+                        </a>
                     </div>
                     <div className="col-12 col-lg-8">
                         <Table striped borderless>
