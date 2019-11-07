@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Button, Breadcrumb, BreadcrumbItem, Table
+    Breadcrumb, BreadcrumbItem, Table
 } from 'reactstrap';
 
 
@@ -27,7 +27,7 @@ const BookDetail = ({ bookdetail, setShowBooks, setShowBookDetail }) => {
                         <h5 className="m-2 text-primary">{bookdetail.title}</h5>
                         <h5 className="m-2 text-primary">{bookdetail.subtitle}</h5>
                         
-                        <a href={amazonUrl} className="amazonLink btn bg-dark" 
+                        <a href={amazonUrl} className="amazonLink btn bg-dark mb-4" 
                             target="_blank" rel="noopener noreferrer">
                                 Buy on Amazon
                         </a>
