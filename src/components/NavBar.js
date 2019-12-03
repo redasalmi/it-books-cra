@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavLink,
@@ -9,10 +9,15 @@ import {
   Button,
   Input
 } from "reactstrap";
+import { useDispatch } from "react-redux";
+import { loading_book, fetchBooks } from "../actions/fetchBooks";
 
-const NavBar = ({ bookSearch, setBookSearch, setShowBookSearch }) => {
+const NavBar = () => {
+  const [bookSearch, setBookSearch] = useState("");
+  const dispatch = useDispatch();
   const handleSearch = event => {
-    setShowBookSearch(true);
+    dispatch(loading_book());
+    dispatch(fetchBooks(bookSearch));
     event.preventDefault();
   };
 

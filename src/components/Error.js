@@ -5,7 +5,7 @@ const Error = () => {
     <div className="text-center">
       <h2 className="font-weight-bold">
         Sorry, Something has gone wrong with the API, please try to refresh the
-        page later
+        page later.
       </h2>
     </div>
   );

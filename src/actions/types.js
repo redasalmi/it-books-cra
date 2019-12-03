@@ -1,0 +1,5 @@
+export const FETCH_BOOKS = "FETCH_BOOKS";
+export const FETCH_BOOK_DETAIL = "FETCH_BOOK_DETAIL";
+export const HIDE_BOOK_DETAIL = "HIDE_BOOK_DETAIL";
+export const LOADING_BOOK = "LOADING_BOOK";
+export const API_ERROR = "API_ERROR";

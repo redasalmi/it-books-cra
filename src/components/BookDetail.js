@@ -1,17 +1,15 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, Table } from "reactstrap";
+import { hide_bookDetail } from "../actions/fetchBooks";
 
-const BookDetail = ({ bookdetail, setShowBooks, setShowBookDetail }) => {
+const BookDetail = ({ bookdetail, dispatch }) => {
   const amazonUrl = `https://itbook.store/go/buy/1/${bookdetail.isbn13}`;
   return (
     <div>
       <Breadcrumb className="bookBreadcrump">
         <BreadcrumbItem
-          onClick={() => {
-            setShowBooks(true);
-            setShowBookDetail(false);
-          }}
           className="homeBreadcrump"
+          onClick={() => dispatch(hide_bookDetail())}
         >
           It Books
         </BreadcrumbItem>
