@@ -1,8 +1,10 @@
 import React from "react";
 import { Card, CardImg, CardTitle } from "reactstrap";
 import { loading_book, fetchBookDetail } from "../actions/fetchBooks";
+import { useDispatch } from "react-redux";
 
-const BookList = ({ books, dispatch }) => {
+const BookList = ({ books }) => {
+  const dispatch = useDispatch();
   if (books.length === 0) {
     return (
       <div className="text-center">
@@ -10,7 +12,7 @@ const BookList = ({ books, dispatch }) => {
       </div>
     );
   } else {
-    let bookList = books.map(book => (
+    let bookList = books.map((book) => (
       <Card
         className="col-10 col-sm-5 col-md-3 m-2 bookCard"
         key={book.isbn13}

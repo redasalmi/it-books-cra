@@ -1,8 +1,10 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem, Table } from "reactstrap";
 import { hide_bookDetail } from "../actions/fetchBooks";
+import { useDispatch } from "react-redux";
 
-const BookDetail = ({ bookdetail, dispatch }) => {
+const BookDetail = ({ bookdetail }) => {
+  const dispatch = useDispatch();
   const amazonUrl = `https://itbook.store/go/buy/1/${bookdetail.isbn13}`;
   return (
     <div>

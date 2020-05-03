@@ -35,14 +35,7 @@ const rootReducer = (state = initialState, action) => {
     case LOADING_BOOK:
       return { ...state, loading: action.payload };
     case API_ERROR:
-      return {
-        ...state,
-        books: [],
-        bookDetail: [],
-        showBookDetail: false,
-        loading: false,
-        api_error: true
-      };
+      return initialState;
     default:
       return state;
   }

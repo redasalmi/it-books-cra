@@ -8,30 +8,20 @@ import BookDetail from "./BookDetail";
 import Error from "./Error";
 
 const Books = () => {
-  const [
-    books,
-    bookdetail,
-    showBookDetail,
-    loading,
-    api_error
-  ] = useSelector(state => [
-    state.books.books,
-    state.books.bookDetail,
-    state.books.showBookDetail,
-    state.books.loading,
-    state.books.api_error
-  ]);
+  const { books, bookDetail, showBookDetail, loading, api_error } = useSelector(
+    (state) => state.books
+  );
 
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchBooks()), [dispatch]);
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
 
   return (
     <div className="container mt-5">
-      {!loading && !api_error && !showBookDetail && (
-        <Booklist books={books} dispatch={dispatch} />
-      )}
-      {!loading && !api_error && showBookDetail && bookdetail.length !== 0 && (
-        <BookDetail bookdetail={bookdetail} dispatch={dispatch} />
+      {!loading && !api_error && !showBookDetail && <Booklist books={books} />}
+      {!loading && !api_error && showBookDetail && bookDetail.length !== 0 && (
+        <BookDetail bookdetail={bookDetail} />
       )}
       {loading && <LoadingBook />}
       {api_error && <Error />}
