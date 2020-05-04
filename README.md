@@ -13,9 +13,9 @@ To clone this project and start it, open a terminal and follow this steps:
 ```
 	git clone https://github.com/redasalmi/it-books.git
 	cd it-books
-	npm install
-	npm start
+	yarn
+	yarn start
 ```
 **Note:**
-```npm install``` will install all the dependencies needed to run the project on your computer.
-```npm start``` will open your default browser and start the website on your localhost.
+```yarn``` will install all the dependencies needed to run the project on your computer.
+```yarn start``` will open your default browser and start the website on your localhost.
