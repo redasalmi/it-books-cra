@@ -6,7 +6,7 @@ import {
   FETCH_BOOK_DETAIL_FAILED,
   RESET_BOOK_DETAIL,
 } from "./types";
-import Axios from "../utils/axios";
+import Axios from "../../utils/axios";
 
 // fetching & searching for books
 export const fetchBooks = (search = "") => async (dispatch) => {

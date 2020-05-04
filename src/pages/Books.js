@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { CardImg, CardTitle, Card } from "reactstrap";
 import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";
-import { fetchBooks, resetBooks } from "../actions/fetchBooks";
+import { fetchBooks, resetBooks } from "../redux/actions/fetchBooks";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 

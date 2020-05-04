@@ -4,8 +4,7 @@ import axios from "axios";
 const corsUrl = "https://cors-server-proxy.herokuapp.com/";
 // API URL
 const apiUrl = "https://api.itbook.store/1.0/";
-const baseUrl =
-  process.env.NODE_ENV === "development" ? corsUrl + apiUrl : apiUrl;
+const baseUrl = corsUrl + apiUrl;
 
 const Axios = axios.create({
   baseURL: baseUrl,
