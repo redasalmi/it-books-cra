@@ -1,89 +1,76 @@
 import {
-  FETCH_BOOKS,
-  FETCH_BOOK_DETAIL,
-  LOADING_BOOK,
-  HIDE_BOOK_DETAIL,
-  API_ERROR,
+  FETCH_BOOKS_SUCCEEDED,
+  FETCH_BOOKS_FAILED,
+  RESET_BOOKS,
+  FETCH_BOOK_DETAIL_SUCCEEDED,
+  FETCH_BOOK_DETAIL_FAILED,
+  RESET_BOOK_DETAIL,
 } from "./types";
-import axios from "axios";
-
-// Url used to activate CORS on the website because the API doesn't support it
-const corsUrl = "https://cors-anywhere.herokuapp.com/";
-// API URL
-const apiUrl = "https://api.itbook.store/1.0/";
-const baseUrl = corsUrl + apiUrl;
+import Axios from "../utils/axios";
 
 // fetching & searching for books
 export const fetchBooks = (search = "") => async (dispatch) => {
-  if (search === "") {
+  if (!search) {
     // fetching latest books
     try {
-      let url = `/new`;
-      const response = await axios.get(url, { baseURL: baseUrl });
+      const response = await Axios.get("/new");
       const books = await response.data.books;
       dispatch({
-        type: FETCH_BOOKS,
+        type: FETCH_BOOKS_SUCCEEDED,
         payload: books,
       });
     } catch (error) {
       dispatch({
-        type: API_ERROR,
+        type: FETCH_BOOKS_FAILED,
       });
     }
   } else {
     // searching for books
     try {
-      let url = `${baseUrl}/search/${search}`;
-      let getUrl = [];
-      for (let page = 1; page <= 5; page++) {
-        getUrl.push(`${url}/${page}`);
-      }
-      const response = await axios.all(getUrl.map((url) => axios.get(url)));
+      let url = `/search/${search}`;
       let bookResult = [];
-      response.forEach((res) => {
-        bookResult.push(...res.data.books);
-      });
+      for (let page = 1; page <= 5; page++) {
+        const response = await Axios.get(`${url}/${page}`);
+        const books = await response.data.books;
+        bookResult.push(...books);
+      }
       dispatch({
-        type: FETCH_BOOKS,
+        type: FETCH_BOOKS_SUCCEEDED,
         payload: bookResult,
       });
     } catch (error) {
       dispatch({
-        type: API_ERROR,
+        type: FETCH_BOOKS_FAILED,
       });
     }
   }
 };
 
+export const resetBooks = () => (dispatch) => {
+  dispatch({
+    type: RESET_BOOKS,
+  });
+};
+
 // fetching a specific book details (title, description, Isbn13...)
 export const fetchBookDetail = (bookIsbn13) => async (dispatch) => {
   try {
-    let url = `/books/${bookIsbn13}`;
-    const response = await axios.get(url, { baseURL: baseUrl });
+    const response = await Axios.get(`/books/${bookIsbn13}`);
     const book = await response.data;
     dispatch({
-      type: FETCH_BOOK_DETAIL,
+      type: FETCH_BOOK_DETAIL_SUCCEEDED,
       payload: book,
     });
   } catch (error) {
     dispatch({
-      type: API_ERROR,
+      type: FETCH_BOOK_DETAIL_FAILED,
     });
   }
 };
 
-// hide a book details to show the list of books
-export const hide_bookDetail = () => (dispatch) => {
+// reset book detail for next fetching
+export const resetBookDetail = () => (dispatch) => {
   dispatch({
-    type: HIDE_BOOK_DETAIL,
-    payload: false,
-  });
-};
-
-// loading spinner
-export const loading_book = () => (dispatch) => {
-  dispatch({
-    type: LOADING_BOOK,
-    payload: true,
+    type: RESET_BOOK_DETAIL,
   });
 };

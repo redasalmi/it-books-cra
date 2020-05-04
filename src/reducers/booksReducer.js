@@ -1,41 +1,65 @@
 import {
-  FETCH_BOOKS,
-  FETCH_BOOK_DETAIL,
-  HIDE_BOOK_DETAIL,
-  LOADING_BOOK,
-  API_ERROR
+  FETCH_BOOKS_SUCCEEDED,
+  FETCH_BOOKS_FAILED,
+  RESET_BOOKS,
+  FETCH_BOOK_DETAIL_SUCCEEDED,
+  FETCH_BOOK_DETAIL_FAILED,
+  RESET_BOOK_DETAIL,
 } from "../actions/types";
 
 const initialState = {
   books: [],
+  books_loading: true,
+  books_error: false,
   bookDetail: [],
-  showBookDetail: false,
-  loading: true,
-  api_error: false
+  bookDetail_loading: true,
+  bookDetail_error: false,
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_BOOKS:
+    case FETCH_BOOKS_SUCCEEDED:
       return {
         ...state,
         books: action.payload,
-        showBookDetail: false,
-        loading: false
+        books_loading: false,
+        books_error: false,
       };
-    case FETCH_BOOK_DETAIL:
+    case FETCH_BOOKS_FAILED:
+      return {
+        ...state,
+        books: [],
+        books_loading: false,
+        books_error: true,
+      };
+    case RESET_BOOKS:
+      return {
+        ...state,
+        books: [],
+        books_loading: true,
+        books_error: false,
+      };
+    case FETCH_BOOK_DETAIL_SUCCEEDED:
       return {
         ...state,
         bookDetail: action.payload,
-        showBookDetail: true,
-        loading: false
+        bookDetail_loading: false,
+        bookDetail_error: false,
       };
-    case HIDE_BOOK_DETAIL:
-      return { ...state, showBookDetail: false, loading: false };
-    case LOADING_BOOK:
-      return { ...state, loading: action.payload };
-    case API_ERROR:
-      return initialState;
+    case FETCH_BOOK_DETAIL_FAILED:
+      return {
+        ...state,
+        bookDetail: [],
+        bookDetail_loading: false,
+        bookDetail_error: true,
+      };
+    case RESET_BOOK_DETAIL:
+      return {
+        ...state,
+        bookDetail: [],
+        bookDetail_loading: true,
+        bookDetail_api_error: false,
+      };
     default:
       return state;
   }

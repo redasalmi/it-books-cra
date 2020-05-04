@@ -3,13 +3,18 @@ body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
 
-.content {
+.container {
   flex: 1 0 auto;
 }
 
@@ -31,6 +36,11 @@ body {
   border: 1px solid black;
   transition: box-shadow 0.5s linear;
   margin: 0.5em;
+}
+
+.bookCard .card-link {
+  text-decoration: none;
+  color: #000;
 }
 
 .bookCard:hover {
@@ -67,4 +77,8 @@ body {
 .amazonLink:hover {
   color: rgb(230, 143, 44);
   text-decoration: none;
+}
+
+.footer {
+  flex-shrink: 0;
 }

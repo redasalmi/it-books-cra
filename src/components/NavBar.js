@@ -7,18 +7,16 @@ import {
   InputGroup,
   InputGroupAddon,
   Button,
-  Input
+  Input,
 } from "reactstrap";
-import { useDispatch } from "react-redux";
-import { loading_book, fetchBooks } from "../actions/fetchBooks";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
   const [bookSearch, setBookSearch] = useState("");
-  const dispatch = useDispatch();
-  const handleSearch = event => {
-    dispatch(loading_book());
-    dispatch(fetchBooks(bookSearch));
+  const history = useHistory();
+  const handleSearch = (event) => {
     event.preventDefault();
+    history.push(`/books/${bookSearch}`);
   };
 
   return (
@@ -26,7 +24,7 @@ const NavBar = () => {
       <Navbar color="dark" dark expand="md">
         <Container className="d-flex align-items-center">
           <NavLink
-            href="/"
+            href="/books"
             className="order-1 col-10 col-md-3 text-white navTitle"
           >
             <h4>IT Books</h4>
@@ -40,7 +38,7 @@ const NavBar = () => {
                 type="text"
                 placeholder="Search books by title, author, ISBN"
                 value={bookSearch}
-                onChange={event => setBookSearch(event.target.value)}
+                onChange={(event) => setBookSearch(event.target.value)}
               />
               <InputGroupAddon addonType="append">
                 <Button className="bg-danger" onClick={handleSearch}>
