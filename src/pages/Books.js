@@ -4,19 +4,20 @@ import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";
 import { fetchBooks, resetBooks } from "../redux/actions/fetchBooks";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 const Books = () => {
   const { books, books_loading, books_error } = useSelector(
     (state) => state.books
   );
   const { search } = useParams();
+  let { pathname } = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(resetBooks());
     if (search) {
-      dispatch(resetBooks());
       dispatch(fetchBooks(search));
-    } else if (books.length === 0) {
+    } else {
       dispatch(fetchBooks());
     }
   }, [search]);
@@ -39,7 +40,13 @@ const Books = () => {
                 className="col-10 col-sm-5 col-md-3 m-2 bookCard"
                 key={book.isbn13}
               >
-                <Link to={`/book/detail/${book.isbn13}`} className="card-link">
+                <Link
+                  to={{
+                    pathname: `/book/detail/${book.isbn13}`,
+                    state: { prevLink: pathname },
+                  }}
+                  className="card-link"
+                >
                   <CardImg
                     top
                     width="100%"

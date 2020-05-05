@@ -6,13 +6,14 @@ import { useParams, Link } from "react-router-dom";
 import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";
 
-const BookDetail = () => {
+const BookDetail = ({ location }) => {
   const dispatch = useDispatch();
   const { bookId } = useParams();
   const { bookDetail, bookDetail_loading, bookDetail_error } = useSelector(
     (state) => state.books
   );
   const amazonUrl = `https://itbook.store/go/buy/1/${bookId}`;
+  const prevLocation = location.state.prevLink;
   useEffect(() => {
     dispatch(fetchBookDetail(bookId));
 
@@ -31,7 +32,7 @@ const BookDetail = () => {
         <div>
           <Breadcrumb className="bookBreadcrump">
             <BreadcrumbItem>
-              <Link to="/books">It Books</Link>
+              <Link to={prevLocation}>It Books</Link>
             </BreadcrumbItem>
             <BreadcrumbItem active>{bookDetail.title}</BreadcrumbItem>
           </Breadcrumb>
