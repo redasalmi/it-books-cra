@@ -24,6 +24,7 @@ const Footer = () => {
               href="https://github.com/redasalmi/it-books"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="github repository"
             >
               <span className="fab fa-github fa-3x text-white navTitle"></span>
             </a>

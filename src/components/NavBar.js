@@ -7,6 +7,7 @@ import {
   InputGroup,
   InputGroupAddon,
   Button,
+  Label,
   Input,
 } from "reactstrap";
 import { useHistory } from "react-router-dom";
@@ -34,14 +35,20 @@ const NavBar = () => {
             onSubmit={handleSearch}
           >
             <InputGroup>
+              <Label placeholder="Search Book" hidden htmlFor="search" />
               <Input
                 type="text"
+                name="search"
                 placeholder="Search books by title, author, ISBN"
                 value={bookSearch}
                 onChange={(event) => setBookSearch(event.target.value)}
               />
               <InputGroupAddon addonType="append">
-                <Button className="bg-danger" onClick={handleSearch}>
+                <Button
+                  className="bg-danger"
+                  onClick={handleSearch}
+                  name="Clickable search button icon"
+                >
                   <span className="fas fa-search text-white"></span>
                 </Button>
               </InputGroupAddon>
@@ -49,8 +56,10 @@ const NavBar = () => {
           </Form>
           <NavLink
             href="https://github.com/redasalmi/it-books"
+            rel="noreferrer noopener"
             target="_blank"
             className="order-2 col-2 col-md-2"
+            aria-label="github repository"
           >
             <span className="fab fa-github fa-3x text-white navTitle"></span>
           </NavLink>
