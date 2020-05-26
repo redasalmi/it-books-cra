@@ -20,6 +20,7 @@ const Books = () => {
     } else {
       dispatch(fetchBooks());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   return (

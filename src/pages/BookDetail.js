@@ -20,6 +20,7 @@ const BookDetail = ({ location }) => {
     return () => {
       dispatch(resetBookDetail());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
