@@ -38,6 +38,7 @@ const NavBar = () => {
               <Label placeholder="Search Book" hidden htmlFor="search" />
               <Input
                 type="text"
+                id="search"
                 name="search"
                 placeholder="Search books by title, author, ISBN"
                 value={bookSearch}
@@ -47,7 +48,7 @@ const NavBar = () => {
                 <Button
                   className="bg-danger"
                   onClick={handleSearch}
-                  name="Clickable search button icon"
+                  aria-label="Search book"
                 >
                   <span className="fas fa-search text-white"></span>
                 </Button>
@@ -68,8 +69,8 @@ const NavBar = () => {
 
       <div className="p-3 subTitle">
         <Container>
-          <h2 className="text-primary">Welcome to IT Books</h2>
-          <h2 className="text-danger">
+          <h2 className="landing-title">Welcome to IT Books</h2>
+          <h2 className="landing-subtitle">
             IT, Programming and Computer Science Books
           </h2>
         </Container>

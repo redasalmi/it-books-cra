@@ -63,7 +63,7 @@ body {
 }
 
 .apiLink {
-  color: #5c98d8;
+  color: #40bcf9;
 }
 
 .apiLink:hover {
@@ -81,4 +81,19 @@ body {
 
 .footer {
   flex-shrink: 0;
+}
+
+.landing-title,
+.book-detail-subtitle,
+.breadcrumb-link {
+  color: #000bad;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: none;
+  color: #111025;
+}
+
+.landing-subtitle {
+  color: #222042;
 }

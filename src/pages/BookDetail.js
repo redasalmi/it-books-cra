@@ -33,7 +33,9 @@ const BookDetail = ({ location }) => {
         <div>
           <Breadcrumb className="bookBreadcrump">
             <BreadcrumbItem>
-              <Link to={prevLocation}>It Books</Link>
+              <Link to={prevLocation} className="breadcrumb-link">
+                It Books
+              </Link>
             </BreadcrumbItem>
             <BreadcrumbItem active>{bookDetail.title}</BreadcrumbItem>
           </Breadcrumb>
@@ -45,8 +47,8 @@ const BookDetail = ({ location }) => {
                   alt={bookDetail.title}
                   className="border bg-light"
                 />
-                <h5 className="m-2 text-primary">{bookDetail.title}</h5>
-                <h5 className="m-2 text-primary">{bookDetail.subtitle}</h5>
+                <h5 className="m-2 book-detail-subtitle">{bookDetail.title}</h5>
+                <h5 className="m-2">{bookDetail.subtitle}</h5>
 
                 <a
                   href={amazonUrl}
