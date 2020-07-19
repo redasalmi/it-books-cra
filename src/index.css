@@ -1,3 +1,13 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -20,12 +30,12 @@ body {
 
 .navTitle:hover,
 .apiLink:hover {
-  color: rgb(230, 143, 44) !important;
+  color: #e68f2c !important;
 }
 
 .subTitle {
   text-align: center;
-  background-color: rgb(200, 200, 200);
+  background-color: #c8c8c8;
 }
 
 .subTitle h2 {
@@ -36,6 +46,19 @@ body {
   border: 1px solid black;
   transition: box-shadow 0.5s linear;
   margin: 0.5em;
+  min-height: 310px;
+}
+
+@media (min-width: 768px) {
+  .bookCard {
+    min-height: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .bookCard {
+    min-height: 310px;
+  }
 }
 
 .bookCard .card-link {
@@ -75,7 +98,7 @@ body {
 }
 
 .amazonLink:hover {
-  color: rgb(230, 143, 44);
+  color: #e68f2c;
   text-decoration: none;
 }
 
@@ -96,4 +119,36 @@ body {
 
 .landing-subtitle {
   color: #222042;
+}
+
+.pagination-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagination-row .page-item .page-link {
+  color: #343a34;
+}
+
+.pagination-row .page-item .page-link:hover {
+  background-color: #c8c8c8;
+  border-color: #c8c8c8;
+  color: #000bad;
+}
+
+.pagination-row .page-item.active .page-link {
+  background-color: #343a34;
+  border-color: #343a34;
+  color: #ffffff;
+}
+
+.pagination-row .page-link {
+  padding: 10px;
+}
+
+@media (min-width: 450px) {
+  .pagination-row .page-link {
+    padding: 10px 15px;
+  }
 }

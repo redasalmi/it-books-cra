@@ -1,27 +1,38 @@
 import React, { useEffect } from "react";
 import { CardImg, CardTitle, Card } from "reactstrap";
+import Pagination from "react-js-pagination";
 import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";
 import { fetchBooks, resetBooks } from "../redux/actions/fetchBooks";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, useHistory } from "react-router-dom";
 
 const Books = () => {
-  const { books, books_loading, books_error } = useSelector(
-    (state) => state.books
-  );
-  const { search } = useParams();
+  const {
+    books,
+    booksPerPage,
+    totalBooks,
+    books_loading,
+    books_error,
+  } = useSelector((state) => state.books);
+  const { search, page } = useParams();
   let { pathname } = useLocation();
   const dispatch = useDispatch();
+  const history = useHistory();
+
   useEffect(() => {
     dispatch(resetBooks());
-    if (search) {
-      dispatch(fetchBooks(search));
+    if (search || page) {
+      dispatch(fetchBooks(search, page));
     } else {
       dispatch(fetchBooks());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+  }, [search, page]);
+
+  const handleChangePage = (page) => {
+    history.push(`/books/${search}/${page}`);
+  };
 
   return (
     <div className="container mt-5">
@@ -59,6 +70,19 @@ const Books = () => {
               </Card>
             ))}
           </div>
+
+          {totalBooks > booksPerPage ? (
+            <div className="row pagination-row">
+              <Pagination
+                activePage={parseInt(page)}
+                itemsCountPerPage={booksPerPage}
+                totalItemsCount={totalBooks}
+                onChange={handleChangePage}
+                itemClass="page-item"
+                linkClass="page-link"
+              />
+            </div>
+          ) : null}
         </div>
       )}
     </div>

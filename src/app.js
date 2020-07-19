@@ -12,7 +12,7 @@ const App = () => {
       <Switch>
         <Route
           exact
-          path={["/", "/books", "/books/:search"]}
+          path={["/", "/books", "/books/:search", "/books/:search/:page"]}
           component={Books}
         />
         <Route path="/book/detail/:bookId" component={BookDetail} />

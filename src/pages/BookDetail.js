@@ -12,8 +12,23 @@ const BookDetail = ({ location }) => {
   const { bookDetail, bookDetail_loading, bookDetail_error } = useSelector(
     (state) => state.books
   );
-  const amazonUrl = `https://itbook.store/go/buy/1/${bookId}`;
+  const amazonUrl = `https://itbook.store/go/buy/${bookId}`;
   const prevLocation = location.state.prevLink;
+  const {
+    title,
+    image,
+    subtitle,
+    authors,
+    publisher,
+    year,
+    pages,
+    language,
+    rating,
+    isbn10,
+    isbn13,
+    desc,
+  } = bookDetail;
+
   useEffect(() => {
     dispatch(fetchBookDetail(bookId));
 
@@ -37,19 +52,15 @@ const BookDetail = ({ location }) => {
                 It Books
               </Link>
             </BreadcrumbItem>
-            <BreadcrumbItem active>{bookDetail.title}</BreadcrumbItem>
+            <BreadcrumbItem active>{title}</BreadcrumbItem>
           </Breadcrumb>
+
           <div className="container">
             <div className="row">
               <div className="col-12 col-lg-4 text-center">
-                <img
-                  src={bookDetail.image}
-                  alt={bookDetail.title}
-                  className="border bg-light"
-                />
-                <h5 className="m-2 book-detail-subtitle">{bookDetail.title}</h5>
-                <h5 className="m-2">{bookDetail.subtitle}</h5>
-
+                <img src={image} alt={title} className="border bg-light" />
+                <h5 className="m-2 book-detail-subtitle">{title}</h5>
+                <h5 className="m-2">{subtitle}</h5>
                 <a
                   href={amazonUrl}
                   className="amazonLink btn bg-dark mb-4"
@@ -64,47 +75,47 @@ const BookDetail = ({ location }) => {
                   <tbody>
                     <tr>
                       <td>Title</td>
-                      <td>{bookDetail.title}</td>
+                      <td>{title}</td>
                     </tr>
                     <tr>
                       <td>Subtitle</td>
-                      <td>{bookDetail.subtitle}</td>
+                      <td>{subtitle}</td>
                     </tr>
                     <tr>
                       <td>Authors</td>
-                      <td>{bookDetail.authors}</td>
+                      <td>{authors}</td>
                     </tr>
                     <tr>
                       <td>Publisher</td>
-                      <td>{bookDetail.publisher}</td>
+                      <td>{publisher}</td>
                     </tr>
                     <tr>
                       <td>Year</td>
-                      <td>{bookDetail.year}</td>
+                      <td>{year}</td>
                     </tr>
                     <tr>
                       <td>Pages</td>
-                      <td>{bookDetail.pages}</td>
+                      <td>{pages}</td>
                     </tr>
                     <tr>
                       <td>Language</td>
-                      <td>{bookDetail.language}</td>
+                      <td>{language}</td>
                     </tr>
                     <tr>
                       <td>Rating</td>
-                      <td>{bookDetail.rating}/5</td>
+                      <td>{rating}/5</td>
                     </tr>
                     <tr>
                       <td>ISBN-10</td>
-                      <td>{bookDetail.isbn10}</td>
+                      <td>{isbn10}</td>
                     </tr>
                     <tr>
                       <td>ISBN-13</td>
-                      <td>{bookDetail.isbn13}</td>
+                      <td>{isbn13}</td>
                     </tr>
                     <tr>
                       <td>Description</td>
-                      <td>{bookDetail.desc}</td>
+                      <td>{desc}</td>
                     </tr>
                   </tbody>
                 </Table>

@@ -9,40 +9,19 @@ import {
 import Axios from "../../utils/axios";
 
 // fetching & searching for books
-export const fetchBooks = (search = "") => async (dispatch) => {
-  if (!search) {
-    // fetching latest books
-    try {
-      const response = await Axios.get("/new");
-      const books = await response.data.books;
-      dispatch({
-        type: FETCH_BOOKS_SUCCEEDED,
-        payload: books,
-      });
-    } catch (error) {
-      dispatch({
-        type: FETCH_BOOKS_FAILED,
-      });
-    }
-  } else {
-    // searching for books
-    try {
-      let url = `/search/${search}`;
-      let bookResult = [];
-      for (let page = 1; page <= 5; page++) {
-        const response = await Axios.get(`${url}/${page}`);
-        const books = await response.data.books;
-        bookResult.push(...books);
-      }
-      dispatch({
-        type: FETCH_BOOKS_SUCCEEDED,
-        payload: bookResult,
-      });
-    } catch (error) {
-      dispatch({
-        type: FETCH_BOOKS_FAILED,
-      });
-    }
+export const fetchBooks = (search = "", page = 1) => async (dispatch) => {
+  try {
+    const url = !search ? "/new" : `/search/${search}/${page}`;
+    const response = await Axios.get(url);
+    const books = await response.data;
+    dispatch({
+      type: FETCH_BOOKS_SUCCEEDED,
+      payload: books,
+    });
+  } catch (error) {
+    dispatch({
+      type: FETCH_BOOKS_FAILED,
+    });
   }
 };
 

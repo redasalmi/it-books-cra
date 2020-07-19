@@ -9,6 +9,8 @@ import {
 
 const initialState = {
   books: [],
+  booksPerPage: 10,
+  totalBooks: null,
   books_loading: true,
   books_error: false,
   bookDetail: [],
@@ -21,7 +23,8 @@ const rootReducer = (state = initialState, action) => {
     case FETCH_BOOKS_SUCCEEDED:
       return {
         ...state,
-        books: action.payload,
+        books: action.payload.books,
+        totalBooks: parseInt(action.payload.total),
         books_loading: false,
         books_error: false,
       };
