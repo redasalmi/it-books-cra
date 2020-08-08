@@ -17,7 +17,9 @@ const NavBar = () => {
   const history = useHistory();
   const handleSearch = (event) => {
     event.preventDefault();
-    history.push(`/books/${bookSearch}/1`);
+    if (bookSearch) {
+      history.push(`/books/${bookSearch}/1`);
+    }
   };
 
   return (

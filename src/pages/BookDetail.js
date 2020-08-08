@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Breadcrumb, BreadcrumbItem, Table } from "reactstrap";
-import { fetchBookDetail, resetBookDetail } from "../redux/actions/fetchBooks";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchBookDetail, resetBookDetail } from "../features/books/booksSlice";
 import { useParams, Link } from "react-router-dom";
 import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";

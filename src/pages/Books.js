@@ -3,8 +3,8 @@ import { CardImg, CardTitle, Card } from "reactstrap";
 import Pagination from "react-js-pagination";
 import LoadingBook from "../components/LoadingBook";
 import Error from "../components/Error";
-import { fetchBooks, resetBooks } from "../redux/actions/fetchBooks";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchBooks, resetBooks } from "../features/books/booksSlice";
 import { Link, useParams, useLocation, useHistory } from "react-router-dom";
 
 const Books = () => {
