@@ -3,7 +3,7 @@ A website to browse for IT, Programming and Computer Science Books.  found at: [
 
 ## Built With
 - React
-- redux, react-redux, redux-thunk
+- react query and axios for data fetching
 - Bootstrap
 - axios
 - IT Bookstore API to fetch data found at: [https://api.itbook.store/](https://api.itbook.store/)
