@@ -77,7 +77,7 @@ body {
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  content: ">";
+  content: '>';
 }
 
 .homeBreadcrump {
@@ -110,6 +110,15 @@ body {
 .book-detail-subtitle,
 .breadcrumb-link {
   color: #000bad;
+}
+
+.breadcrumb-link {
+  background-color: transparent;
+  border: none;
+}
+
+.breadcrumb-link:focus {
+  outline: none;
 }
 
 .breadcrumb-link:hover {
