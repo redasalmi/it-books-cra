@@ -1,5 +1,5 @@
 const Error = () => (
-  <div className='text-center'>
+  <div className='container text-center'>
     <h2 className='font-weight-bold'>
       Sorry, Something has gone wrong with the API, please try to refresh the
       page later.
