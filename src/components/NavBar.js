@@ -11,6 +11,7 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import { FaGithub, FaSearch } from 'react-icons/fa';
 
 const NavBar = () => {
   const [bookSearch, setBookSearch] = useState('');
@@ -52,7 +53,7 @@ const NavBar = () => {
                   onClick={handleSearch}
                   aria-label='Search book'
                 >
-                  <span className='fas fa-search text-white'></span>
+                  <FaSearch className='text-white navTitle' />
                 </Button>
               </InputGroupAddon>
             </InputGroup>
@@ -64,7 +65,7 @@ const NavBar = () => {
             className='order-2 col-2 col-md-2'
             aria-label='github repository'
           >
-            <span className='fab fa-github fa-3x text-white navTitle'></span>
+            <FaGithub className='text-white navTitle' size='3em' />
           </NavLink>
         </Container>
       </Navbar>

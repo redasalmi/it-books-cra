@@ -1,3 +1,5 @@
+import { FaGithub } from 'react-icons/fa';
+
 const Footer = () => (
   <footer className='bg-dark text-white text-center footer mt-5'>
     <div className='container p-2'>
@@ -23,7 +25,7 @@ const Footer = () => (
             rel='noreferrer noopener'
             aria-label='github repository'
           >
-            <span className='fab fa-github fa-3x text-white navTitle'></span>
+            <FaGithub className='text-white navTitle' size='3em' />
           </a>
         </div>
       </div>
