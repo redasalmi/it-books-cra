@@ -1,4 +1,4 @@
-import Axios from '../utils/axios';
+import Axios from './axios';
 
 const fetchBooks = async (search = '', page = 1) => {
   const url = !search ? '/new' : `/search/${search}/${page}`;

@@ -1,10 +1,12 @@
+import StyledError from '../styles/Error.style.';
+
 const Error = () => (
-  <div className='container text-center'>
-    <h2 className='font-weight-bold'>
+  <StyledError className='container'>
+    <h2>
       Sorry, Something has gone wrong with the API, please try to refresh the
       page later.
     </h2>
-  </div>
+  </StyledError>
 );
 
 export default Error;

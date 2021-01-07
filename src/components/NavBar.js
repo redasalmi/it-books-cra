@@ -1,21 +1,14 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import {
-  Navbar,
-  NavLink,
-  Form,
-  Container,
-  InputGroup,
-  InputGroupAddon,
-  Button,
-  Label,
-  Input,
-} from 'reactstrap';
-import { FaGithub, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
+import StyledNavbar from '../styles/Navbar.style';
 
 const NavBar = () => {
   const [bookSearch, setBookSearch] = useState('');
   const history = useHistory();
+
+  const handleSearchChange = (event) => setBookSearch(event.target.value);
+
   const handleSearch = (event) => {
     event.preventDefault();
     if (bookSearch) {
@@ -24,61 +17,28 @@ const NavBar = () => {
   };
 
   return (
-    <div>
-      <Navbar color='dark' dark expand='md'>
-        <Container className='d-flex align-items-center'>
-          <NavLink
-            href='/books'
-            className='order-1 col-10 col-md-3 text-white navTitle'
-          >
-            <h4>IT Books</h4>
-          </NavLink>
-          <Form
-            className='mr-5 order-3 order-md-2 col-12 col-md-7'
-            onSubmit={handleSearch}
-          >
-            <InputGroup>
-              <Label placeholder='Search Book' hidden htmlFor='search' />
-              <Input
-                type='text'
-                id='search'
-                name='search'
-                placeholder='Search books by title, author, ISBN'
-                value={bookSearch}
-                onChange={(event) => setBookSearch(event.target.value)}
-              />
-              <InputGroupAddon addonType='append'>
-                <Button
-                  className='bg-danger'
-                  onClick={handleSearch}
-                  aria-label='Search book'
-                >
-                  <FaSearch className='text-white navTitle' />
-                </Button>
-              </InputGroupAddon>
-            </InputGroup>
-          </Form>
-          <NavLink
-            href='https://github.com/redasalmi/it-books'
-            rel='noreferrer noopener'
-            target='_blank'
-            className='order-2 col-2 col-md-2'
-            aria-label='github repository'
-          >
-            <FaGithub className='text-white navTitle' size='3em' />
-          </NavLink>
-        </Container>
-      </Navbar>
+    <StyledNavbar>
+      <div className='container navbar-container'>
+        <div className='navbar-logo'>
+          <a href='/'>IT Books</a>
+        </div>
 
-      <div className='p-3 subTitle'>
-        <Container>
-          <h2 className='landing-title'>Welcome to IT Books</h2>
-          <h2 className='landing-subtitle'>
-            IT, Programming and Computer Science Books
-          </h2>
-        </Container>
+        <form onSubmit={handleSearch} className='navbar-form'>
+          <input
+            id='search'
+            type='text'
+            value={bookSearch}
+            onChange={handleSearchChange}
+            aria-label='Search books by title, author, ISBN'
+            placeholder='Search books by title, author, ISBN'
+          />
+
+          <button type='submit' aria-label='search book'>
+            <FaSearch color='white' />
+          </button>
+        </form>
       </div>
-    </div>
+    </StyledNavbar>
   );
 };
 
