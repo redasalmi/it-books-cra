@@ -13,7 +13,7 @@ const Books = () => {
   const history = useHistory();
 
   const { isLoading, isError, data } = useQuery(
-    ['bookDetail', search, page],
+    ['books', search, page],
     () => fetchBooks(search, page)
   );
 
