@@ -30,6 +30,8 @@ const StyledBooksList = styled.div`
       color: ${(props) => props.theme.black};
 
       img {
+        width: 300px;
+        height: 350px;
         transition: transform 0.5s ease-in-out;
       }
 

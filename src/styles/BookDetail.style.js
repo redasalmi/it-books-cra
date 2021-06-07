@@ -44,6 +44,8 @@ const StyledBookDetail = styled.div`
       text-align: center;
 
       img {
+        width: 300px;
+        height: 350px;
         border: 1px solid ${(props) => props.theme.imgBorder} !important;
         background-color: ${(props) => props.theme.imgBg};
       }
