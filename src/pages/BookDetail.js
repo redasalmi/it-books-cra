@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
+
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
-import Detail from '../components/books/Detail';
+import Detail from '../components/Books/Detail';
+
 import fetchBooks from '../utils/fetchBooks';
 
 const BookDetail = () => {

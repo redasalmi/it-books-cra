@@ -1,12 +1,12 @@
-import StyledWelcome from '../styles/Welcome.style';
+import styles from './Welcome.module.scss';
 
 const Welcome = () => (
-  <StyledWelcome>
-    <div className='container'>
+  <div className={styles.welcome}>
+    <div className={styles.container}>
       <h2>Welcome to IT Books</h2>
       <h2>IT, Programming and Computer Science Books</h2>
     </div>
-  </StyledWelcome>
+  </div>
 );
 
 export default Welcome;

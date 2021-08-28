@@ -1,0 +1,115 @@
+@use '../../../styles/colors';
+@use '../../../styles/utilities';
+@use '../../../styles/breakpoints';
+
+.detailNav {
+  display: none;
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    li:first-child {
+      a {
+        color: colors.$blue;
+
+        &:hover {
+          color: colors.$black;
+        }
+      }
+    }
+
+    li:nth-child(2) {
+      color: colors.$gray;
+
+      &::before {
+        content: '>';
+        padding: 0 8px;
+      }
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$large) {
+    display: block;
+  }
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include utilities.responsive(breakpoints.$large) {
+    margin-top: 30px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.infoCol {
+  margin-top: 15px;
+  flex: 0 0 100%;
+
+  table {
+    border-collapse: collapse;
+
+    tbody {
+      tr {
+        td {
+          padding: 14px;
+
+          &:first-child {
+            vertical-align: top;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: colors.$bookInfoBg;
+        }
+      }
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$large) {
+    margin-top: 0;
+    flex: 0 0 64%;
+  }
+}
+
+.imgCol {
+  flex: 0 0 100%;
+  width: 100%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border: 1px solid colors.$imgBorder !important;
+    background-color: colors.$imgBg;
+  }
+
+  div {
+    text-align: center;
+
+    h3:first-child {
+      color: colors.$blue;
+      margin: 15px 0;
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$small-1) {
+    flex: 0 0 70%;
+    width: 70%;
+  }
+
+  @include utilities.responsive(breakpoints.$medium) {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+
+  @include utilities.responsive(breakpoints.$large) {
+    flex: 0 0 32%;
+  }
+}

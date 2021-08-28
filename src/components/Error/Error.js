@@ -1,12 +1,12 @@
-import StyledError from '../styles/Error.style.';
+import styles from './Error.module.scss';
 
 const Error = () => (
-  <StyledError className='container'>
+  <div className={`container ${styles.error}`}>
     <h2>
       Sorry, Something has gone wrong with the API, please try to refresh the
       page later.
     </h2>
-  </StyledError>
+  </div>
 );
 
 export default Error;

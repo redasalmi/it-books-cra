@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
-import BooksList from '../components/books/List';
+import BooksList from '../components/Books/List';
 
 import fetchBooks from '../utils/fetchBooks';
 
@@ -22,9 +22,7 @@ const NewBooks = () => {
       <h1>Sorry, No Books Found</h1>
     </div>
   ) : (
-    <div>
-      <BooksList books={books} />
-    </div>
+    <BooksList books={books} />
   );
 };
 

@@ -1,0 +1,57 @@
+@use '../../styles/colors';
+@use '../../styles/utilities';
+@use '../../styles/breakpoints';
+
+.container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+}
+
+.item {
+  border-color: colors.$black;
+  border-left: 1px solid #c8c8c8;
+
+  &:first-child {
+    border-left: none;
+  }
+
+  &:hover {
+    background-color: colors.$welcomeBg;
+  }
+}
+
+.activeItem {
+  background-color: colors.$navbarBg !important;
+}
+
+.disabledItem {
+  background-color: colors.$white !important;
+
+  a {
+    cursor: not-allowed;
+    color: colors.$welcomeBg;
+  }
+}
+
+.link {
+  display: block;
+  padding: 10px;
+  color: colors.$black;
+
+  @include utilities.responsive(breakpoints.$small-2) {
+    padding: 10px 15px;
+  }
+}
+
+.activeLink {
+  color: colors.$white;
+}

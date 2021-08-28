@@ -1,0 +1,61 @@
+@use '../../../styles/colors';
+@use '../../../styles/utilities';
+@use '../../../styles/breakpoints';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.book {
+  margin: 8px;
+  flex: 0 0 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid colors.$black;
+  border-radius: 5px;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: colors.$black;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    p {
+      padding: 0 2px;
+    }
+  }
+
+  &:hover {
+    border: none;
+    box-shadow: 1px 1px 3px colors.$navbarBg;
+
+    img {
+      transform: scale(1.2);
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$small-3) {
+    flex: 0 0 45%;
+  }
+
+  @include utilities.responsive(breakpoints.$large) {
+    flex: 0 0 26%;
+  }
+}

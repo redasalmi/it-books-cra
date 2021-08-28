@@ -1,8 +1,8 @@
-import { useHistory } from 'react-router-dom';
-import StyledBookDetail from '../../styles/BookDetail.style';
+import { Link } from 'react-router-dom';
+
+import styles from './Detail.module.scss';
 
 const BookDetail = ({ book }) => {
-  const history = useHistory();
   const {
     title,
     image,
@@ -19,18 +19,18 @@ const BookDetail = ({ book }) => {
   } = book;
 
   return (
-    <StyledBookDetail>
-      <nav className='book-detail-nav'>
+    <div>
+      <nav className={styles.detailNav}>
         <ul>
           <li>
-            <button onClick={() => history.goBack()}>It Books</button>
+            <Link to='/'>It Books</Link>
           </li>
           <li>{title}</li>
         </ul>
       </nav>
 
-      <div className='book-detail'>
-        <div className='img-col'>
+      <div className={styles.detail}>
+        <div className={styles.imgCol}>
           <img src={image} alt={title} />
 
           <div>
@@ -39,7 +39,7 @@ const BookDetail = ({ book }) => {
           </div>
         </div>
 
-        <div className='info-col'>
+        <div className={styles.infoCol}>
           <table>
             <tbody>
               <tr>
@@ -100,7 +100,7 @@ const BookDetail = ({ book }) => {
           </table>
         </div>
       </div>
-    </StyledBookDetail>
+    </div>
   );
 };
 

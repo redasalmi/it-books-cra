@@ -1,9 +1,9 @@
-import { FaGithub } from 'react-icons/fa';
-import StyledFooter from '../styles/Footer.style';
+import { ReactComponent as GithubIcon } from '../../assets/svg/github.svg';
+import styles from './Footer.module.scss';
 
 const Footer = () => (
-  <StyledFooter className='footer'>
-    <div className='container'>
+  <footer className={`footer ${styles.footer}`}>
+    <div className={`container ${styles.content}`}>
       <p>
         All of these books and information are brought to you by the{' '}
         <a
@@ -21,10 +21,10 @@ const Footer = () => (
         aria-label='reda salmi github account'
         href='https://github.com/redasalmi/it-books'
       >
-        <FaGithub className='text-white navTitle' size='3em' />
+        <GithubIcon />
       </a>
     </div>
-  </StyledFooter>
+  </footer>
 );
 
 export default Footer;

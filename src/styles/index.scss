@@ -1,0 +1,71 @@
+@use './colors';
+@use './utilities';
+@use './breakpoints';
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: inherit;
+}
+
+html,
+body,
+body > div {
+  height: 100%;
+}
+
+body {
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 48px auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include utilities.responsive(breakpoints.$small-3) {
+    max-width: 540px;
+  }
+
+  @include utilities.responsive(breakpoints.$medium) {
+    max-width: 720px;
+  }
+
+  @include utilities.responsive(breakpoints.$large) {
+    max-width: 960px;
+  }
+
+  @include utilities.responsive(breakpoints.$extra-large) {
+    max-width: 1140px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

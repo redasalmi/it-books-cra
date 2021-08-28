@@ -1,0 +1,11 @@
+@use 'breakpoints';
+
+@mixin responsive($breakpoint) {
+  @each $bp in breakpoints.$all-breakpoints {
+    @if ($breakpoint == $bp) {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}

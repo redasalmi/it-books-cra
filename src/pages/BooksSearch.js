@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import Pagination from 'react-js-pagination';
+
 import Spinner from '../components/Spinner';
 import Error from '../components/Error';
-import BooksList from '../components/books/List';
-import StyledPagination from '../styles/Pagination.style';
+import BooksList from '../components/Books/List';
+import Pagination from '../components/Pagination';
+
 import fetchBooks from '../utils/fetchBooks';
 
 const BooksSearch = () => {
@@ -21,32 +22,27 @@ const BooksSearch = () => {
   if (isError) return <Error />;
 
   const { books, total } = data;
+  const booksTotal = parseInt(total, 10);
   const booksPerPage = 10;
 
   const handleChangePage = (page) => {
     history.push(`/books/${search}/${page}`);
   };
 
-  return books.length === 0 ? (
-    <div className='text-center'>
-      <h1>Sorry, No Books Found</h1>
-    </div>
-  ) : (
-    <div>
+  return booksTotal > 0 ? (
+    <>
       <BooksList books={books} />
 
-      {search && total > booksPerPage && (
-        <StyledPagination>
-          <Pagination
-            activePage={parseInt(page)}
-            itemsCountPerPage={booksPerPage}
-            totalItemsCount={parseInt(total)}
-            onChange={handleChangePage}
-            itemClass='page-item'
-            linkClass='page-link'
-          />
-        </StyledPagination>
-      )}
+      <Pagination
+        activePage={parseInt(page)}
+        itemsCountPerPage={booksPerPage}
+        totalItemsCount={booksTotal}
+        handlePageChange={handleChangePage}
+      />
+    </>
+  ) : (
+    <div className='text-center'>
+      <h1>Sorry, No Books Found</h1>
     </div>
   );
 };

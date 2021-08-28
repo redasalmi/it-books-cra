@@ -1,0 +1,21 @@
+@use '../../styles/colors';
+
+.welcome {
+  padding: 15px;
+  background-color: colors.$welcomeBg;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    margin: 5px;
+    font-weight: 400;
+
+    &:first-child {
+      color: colors.$blue;
+    }
+  }
+}

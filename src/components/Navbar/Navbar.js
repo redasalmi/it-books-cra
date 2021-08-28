@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
-import StyledNavbar from '../styles/Navbar.style';
+
+import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg';
+import styles from './Navbar.module.scss';
 
 const NavBar = () => {
   const [bookSearch, setBookSearch] = useState('');
@@ -17,13 +18,13 @@ const NavBar = () => {
   };
 
   return (
-    <StyledNavbar>
-      <div className='container navbar-container'>
-        <div className='navbar-logo'>
+    <nav className={styles.navbar}>
+      <div className={`container ${styles.container}`}>
+        <div className={styles.logo}>
           <Link to='/'>IT Books</Link>
         </div>
 
-        <form onSubmit={handleSearch} className='navbar-form'>
+        <form onSubmit={handleSearch} className={styles.form}>
           <input
             id='search'
             type='text'
@@ -34,11 +35,11 @@ const NavBar = () => {
           />
 
           <button type='submit' aria-label='search book'>
-            <FaSearch color='white' />
+            <SearchIcon className={styles.searchIcon} />
           </button>
         </form>
       </div>
-    </StyledNavbar>
+    </nav>
   );
 };
 

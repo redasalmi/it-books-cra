@@ -1,0 +1,43 @@
+@use '../../styles/colors';
+
+.footer {
+  padding: 10px;
+  background-color: colors.$navbarBg;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  p {
+    color: colors.$white;
+
+    a {
+      color: colors.$footerLink;
+
+      &:hover {
+        color: colors.$orange;
+      }
+    }
+  }
+
+  a {
+    text-align: right;
+
+    svg {
+      width: 45px;
+      height: 45px;
+
+      path {
+        fill: colors.$white;
+      }
+
+      &:hover {
+        path {
+          fill: colors.$orange;
+        }
+      }
+    }
+  }
+}

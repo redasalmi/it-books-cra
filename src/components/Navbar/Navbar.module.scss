@@ -1,0 +1,89 @@
+@use '../../styles/colors';
+@use '../../styles/utilities';
+@use '../../styles/breakpoints';
+
+.navbar {
+  background-color: colors.$navbarBg;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  @include utilities.responsive(breakpoints.$small-3) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+
+  a {
+    color: colors.$white;
+    font-size: 25px;
+    font-weight: bold;
+
+    &:hover {
+      color: colors.$orange;
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$small-3) {
+    flex: 0 0 20%;
+    text-align: left;
+  }
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+
+  input {
+    width: 80%;
+    border: none;
+    background-color: colors.$white;
+    font-size: 16px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+
+    @include utilities.responsive(breakpoints.$small-3) {
+      width: 60%;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: colors.$red;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$darkRed;
+    }
+  }
+
+  @include utilities.responsive(breakpoints.$small-3) {
+    flex: 0 0 80%;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+}
+
+.searchIcon {
+  fill: colors.$white;
+  width: 30px;
+  height: 30px;
+}
