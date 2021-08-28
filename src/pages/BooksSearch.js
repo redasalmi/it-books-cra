@@ -6,20 +6,18 @@ import Spinner from '../components/Spinner';
 import Error from '../components/Error';
 import BooksList from '../components/books/List';
 import StyledPagination from '../styles/Pagination.style';
-import { fetchBooks } from '../utils/fetchBooks';
+import fetchBooks from '../utils/fetchBooks';
 
-const Books = () => {
+const BooksSearch = () => {
   const { search, page } = useParams();
   const history = useHistory();
 
-  const { isLoading, isError, data } = useQuery(['books', search, page], () =>
-    fetchBooks(search, page)
+  const { isLoading, isError, data } = useQuery(
+    ['books', search, page],
+    async () => fetchBooks(`/search/${search}/${page}`),
   );
 
-  const spinnerMessage = !search
-    ? 'Loading New Released Books...'
-    : 'Loading Search Result...';
-  if (isLoading) return <Spinner textMessage={spinnerMessage} />;
+  if (isLoading) return <Spinner textMessage='Loading Search Result...' />;
   if (isError) return <Error />;
 
   const { books, total } = data;
@@ -53,4 +51,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default BooksSearch;

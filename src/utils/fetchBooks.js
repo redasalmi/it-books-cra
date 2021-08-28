@@ -1,18 +1,20 @@
-import Axios from './axios';
+const fetchBooks = async (resource) => {
+  // Url used to activate CORS on the website because the API doesn't support it
+  const corsUrl = 'https://cors-server-proxy.herokuapp.com/';
 
-const fetchBooks = async (search = '', page = 1) => {
-  const url = !search ? '/new' : `/search/${search}/${page}`;
-  const response = await Axios.get(url);
-  const books = await response.data;
+  // API URL
+  const apiUrl = 'https://api.itbook.store/1.0';
+  const baseURL = corsUrl + apiUrl;
 
-  return books;
+  const res = await fetch(`${baseURL}${resource}`, {
+    headers: {
+      origin: '*',
+      'Content-Type': 'application/json',
+    },
+  });
+  const json = await res.json();
+
+  return json;
 };
 
-const fetchBookDetail = async (bookId) => {
-  const response = await Axios.get(`/books/${bookId}`);
-  const bookDetail = await response.data;
-
-  return bookDetail;
-};
-
-export { fetchBooks, fetchBookDetail };
+export default fetchBooks;

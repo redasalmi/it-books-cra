@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import StyledNavbar from '../styles/Navbar.style';
 
@@ -20,7 +20,7 @@ const NavBar = () => {
     <StyledNavbar>
       <div className='container navbar-container'>
         <div className='navbar-logo'>
-          <a href='/'>IT Books</a>
+          <Link to='/'>IT Books</Link>
         </div>
 
         <form onSubmit={handleSearch} className='navbar-form'>

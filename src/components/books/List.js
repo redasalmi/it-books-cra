@@ -13,7 +13,7 @@ const BooksList = ({ books }) => {
           <div className='book-card' key={isbn13}>
             <Link
               to={{
-                pathname: `/book/detail/${isbn13}`,
+                pathname: `/book/${isbn13}`,
                 state: { prevLink: pathname },
               }}
             >
