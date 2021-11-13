@@ -1,19 +1,29 @@
 import { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg';
 import styles from './Navbar.module.scss';
 
 const NavBar = () => {
-  const [bookSearch, setBookSearch] = useState('');
-  const history = useHistory();
+  const [search, setSearch] = useState('');
+  const [, setSearchParams] = useSearchParams();
 
-  const handleSearchChange = (event) => setBookSearch(event.target.value);
+  const handleSearchChange = (event) => {
+    const searchValue = event.target.value;
+    if (searchValue) {
+      setSearch(searchValue);
+    } else {
+      setSearch('');
+    }
+  };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    if (bookSearch) {
-      history.push(`/books/${bookSearch}/1`);
+    if (search) {
+      setSearchParams({
+        search,
+        page: 1,
+      });
     }
   };
 
@@ -28,7 +38,7 @@ const NavBar = () => {
           <input
             id='search'
             type='text'
-            value={bookSearch}
+            value={search}
             onChange={handleSearchChange}
             aria-label='Search books by title, author, ISBN'
             placeholder='Search books by title, author, ISBN'
