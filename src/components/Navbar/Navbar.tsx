@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Link,
   useSearchParams,
   useLocation,
   useNavigate,
+  createSearchParams,
 } from 'react-router-dom';
 
 import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg';
@@ -16,7 +17,7 @@ const NavBar = () => {
   const [search, setSearch] = useState('');
   const [, setSearchParams] = useSearchParams();
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
     if (searchValue) {
       setSearch(searchValue);
@@ -25,14 +26,16 @@ const NavBar = () => {
     }
   };
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();
     if (search) {
       if (pathname === '/') {
-        setSearchParams({
-          search,
-          page: 1,
-        });
+        setSearchParams(
+          createSearchParams({
+            search,
+            page: '1',
+          }),
+        );
       } else {
         navigate(`/?search=${search}&page=1`);
       }
