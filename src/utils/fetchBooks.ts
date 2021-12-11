@@ -1,4 +1,6 @@
-const fetchBooks = async (resource) => {
+import { BooksData } from '../types/book';
+
+const fetchBooks = async (resource: string): Promise<BooksData> => {
   // Url used to activate CORS on the website because the API doesn't support it
   const corsUrl = 'https://cors-server-proxy.herokuapp.com/';
 
@@ -12,6 +14,11 @@ const fetchBooks = async (resource) => {
       'Content-Type': 'application/json',
     },
   });
+
+  if (res.status !== 200) {
+    throw new Error('Network error, no books found.');
+  }
+
   const json = await res.json();
 
   return json;
