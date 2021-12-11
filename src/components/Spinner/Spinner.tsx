@@ -1,6 +1,10 @@
 import styles from './Spinner.module.scss';
 
-const Spinner = ({ textMessage }) => (
+interface SpinnerProps {
+  textMessage: string;
+}
+
+const Spinner = ({ textMessage }: SpinnerProps) => (
   <div>
     <div className={styles.spinner}>
       <div />
