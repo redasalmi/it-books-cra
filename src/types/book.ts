@@ -13,3 +13,15 @@ export interface BooksData {
   page?: string;
   total: string;
 }
+
+export interface BookData extends Book {
+  authors: string;
+  desc: string;
+  error: string;
+  isbn10: string;
+  language: string;
+  pages: string;
+  publisher: string;
+  rating: string;
+  year: string;
+}

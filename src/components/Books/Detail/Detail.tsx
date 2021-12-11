@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import { BookData } from '../../../types/book';
 import styles from './Detail.module.scss';
 
-const BookDetail = ({ book }) => {
+interface BookDetailProps {
+  book: BookData;
+}
+
+const BookDetail = ({ book }: BookDetailProps) => {
   const {
     title,
     image,

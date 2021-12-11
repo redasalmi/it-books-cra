@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 import fetchBooks from '../utils/fetchBooks';
-import { BooksData } from '../types/book';
+import { BooksData, BookData } from '../types/book';
 
 export const useNewBooks = (enabled: boolean) =>
   useQuery<BooksData, Error>('NewBooks', async () => fetchBooks('/new'), {
@@ -19,4 +19,9 @@ export const useSearchBooks = (
     {
       enabled,
     },
+  );
+
+export const useBookDetail = (bookId: string) =>
+  useQuery<BookData, Error>(['bookDetail', bookId], async () =>
+    fetchBooks(`/books/${bookId}`),
   );

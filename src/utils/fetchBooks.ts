@@ -1,6 +1,4 @@
-import { BooksData } from '../types/book';
-
-const fetchBooks = async (resource: string): Promise<BooksData> => {
+const fetchBooks = async (resource: string) => {
   // Url used to activate CORS on the website because the API doesn't support it
   const corsUrl = 'https://cors-server-proxy.herokuapp.com/';
 
