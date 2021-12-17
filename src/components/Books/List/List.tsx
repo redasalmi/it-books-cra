@@ -22,6 +22,4 @@ const BooksList = ({ books }: BooksListProps) => {
   );
 };
 
-// state: { prevLink: pathname },
-
 export default BooksList;
