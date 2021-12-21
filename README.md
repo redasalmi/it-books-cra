@@ -29,6 +29,8 @@ To clone this project and start it, open a terminal and follow this steps:
 	yarn start
 ```
 
+Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
+
 **Note:**
 `yarn install` will install all the dependencies needed to run the project on your machine.
 `yarn start` will open your default browser and start the website on your localhost.
