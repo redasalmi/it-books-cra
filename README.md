@@ -1,6 +1,6 @@
-# IT BOOKS
+# IT BOOKS (CRA version)
 
-A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks.netlify.com/](https://itbooks.netlify.com/)
+A website to browse for IT, Programming and Computer Science Books. found at: [https://itbooks.netlify.com/](https://itbooks.netlify.com/).
 
 ## Other versions
 
@@ -30,5 +30,5 @@ To clone this project and start it, open a terminal and follow this steps:
 ```
 
 **Note:**
-`yarn install` will install all the dependencies needed to run the project on your computer.
+`yarn install` will install all the dependencies needed to run the project on your machine.
 `yarn start` will open your default browser and start the website on your localhost.
