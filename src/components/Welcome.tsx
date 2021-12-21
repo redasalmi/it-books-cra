@@ -1,4 +1,4 @@
-import styles from './Welcome.module.scss';
+import styles from '~/styles/components/welcome.module.scss';
 
 const Welcome = () => (
   <div className={styles.welcome}>

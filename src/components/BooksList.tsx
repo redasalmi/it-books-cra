@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import { Book } from '../../../types/book';
-import styles from './List.module.scss';
+import type { Book } from '~/types/book';
+import styles from '~/styles/components/books-list.module.scss';
 
 interface BooksListProps {
   books: Book[];

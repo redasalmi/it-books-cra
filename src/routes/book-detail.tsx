@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
 
-import Spinner from '../components/Spinner';
-import Error from '../components/Error';
-import Detail from '../components/Books/Detail';
+import Spinner from '~/components/Spinner';
+import Error from '~/components/Error';
+import Detail from '~/components/BookDetail';
 
-import { useBookDetail } from '../hooks/useBooks';
+import { useBookDetail } from '~/hooks/useBooks';
 
 const BookDetail = () => {
   const { bookId } = useParams();

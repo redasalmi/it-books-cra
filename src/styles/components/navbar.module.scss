@@ -1,6 +1,6 @@
-@use '../../styles/colors';
-@use '../../styles/utilities';
-@use '../../styles/breakpoints';
+@use '_colors';
+@use '_utilities';
+@use '_breakpoints';
 
 .navbar {
   background-color: colors.$navbarBg;

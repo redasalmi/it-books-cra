@@ -1,6 +1,6 @@
-@use './colors';
-@use './utilities';
-@use './breakpoints';
+@use '_colors';
+@use '_utilities';
+@use '_breakpoints';
 
 html {
   box-sizing: border-box;

@@ -1,5 +1,5 @@
-import { ReactComponent as GithubIcon } from '../../assets/svg/github.svg';
-import styles from './Footer.module.scss';
+import { ReactComponent as GithubIcon } from '~/assets/svg/github.svg';
+import styles from '~/styles/components/footer.module.scss';
 
 const Footer = () => (
   <footer className={`footer ${styles.footer}`}>

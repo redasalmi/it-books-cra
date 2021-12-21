@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import { BookData } from '../../../types/book';
-import styles from './Detail.module.scss';
+import type { BookData } from '~/types/book';
+import styles from '~/styles/components/book-detail.module.scss';
 
 interface BookDetailProps {
   book: BookData;

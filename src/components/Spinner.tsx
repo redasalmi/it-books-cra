@@ -1,4 +1,4 @@
-import styles from './Spinner.module.scss';
+import styles from '~/styles/components/spinner.module.scss';
 
 interface SpinnerProps {
   textMessage: string;

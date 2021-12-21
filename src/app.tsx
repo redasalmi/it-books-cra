@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import QueryClientProvider from './QueryClient';
 
-import Main from './main';
-import Books from './pages/Books';
-import BookDetail from './pages/BookDetail';
+import QueryClientProvider from '~/QueryClient';
+import Main from '~/main';
+import Books from '~/routes/books';
+import BookDetail from '~/routes/book-detail';
 
 const App = () => (
   <QueryClientProvider>

@@ -1,6 +1,6 @@
 import RcPagination from 'react-js-pagination';
 
-import styles from './Pagination.module.scss';
+import styles from '~/styles/components/pagination.module.scss';
 
 interface PaginationProps {
   activePage: number;

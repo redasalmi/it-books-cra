@@ -7,8 +7,8 @@ import {
   createSearchParams,
 } from 'react-router-dom';
 
-import { ReactComponent as SearchIcon } from '../../assets/svg/search.svg';
-import styles from './Navbar.module.scss';
+import { ReactComponent as SearchIcon } from '~/assets/svg/search.svg';
+import styles from '~/styles/components/navbar.module.scss';
 
 const NavBar = () => {
   const { pathname } = useLocation();

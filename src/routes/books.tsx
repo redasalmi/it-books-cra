@@ -1,11 +1,11 @@
 import { createSearchParams, useSearchParams } from 'react-router-dom';
 
-import Spinner from '../components/Spinner';
-import Error from '../components/Error';
-import BooksList from '../components/Books/List';
-import Pagination from '../components/Pagination';
+import Spinner from '~/components/Spinner';
+import Error from '~/components/Error';
+import BooksList from '~/components/BooksList';
+import Pagination from '~/components/Pagination';
 
-import { useNewBooks, useSearchBooks } from '../hooks/useBooks';
+import { useNewBooks, useSearchBooks } from '~/hooks/useBooks';
 
 const Books = () => {
   const [searchParams, setSearchParams] = useSearchParams();
